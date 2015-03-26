@@ -106,7 +106,7 @@ var mediaAlertMessages = [
 /**
  * Application ID
  */
-var applicationID = 'YOUR_APP_ID';
+var applicationID = '52B7BA6E';// 'YOUR_APP_ID';
 
 /**
  * Current media session
