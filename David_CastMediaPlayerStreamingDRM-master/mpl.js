@@ -848,3 +848,8 @@ window.mediaHost.updateLicenseRequestInfo = function (data) {
 	origUpdateLicenseRequestInfo(data);
 }
 
+var origTrackBandwidth = window.mediaHost.trackBandwidth;
+window.mediaHost.trackBandwidth = function (streamIndex, time, size) {
+	setDebugMessage('TrackBandwidth', 'trackBandwidth...');
+	origTrackBandwidth(streamIndex, time, size);
+}
