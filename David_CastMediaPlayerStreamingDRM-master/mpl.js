@@ -832,3 +832,15 @@ function getPlayerState() {
   var playerState = mediaPlayer.getState();
   setDebugMessage('mediaPlayerState', 'underflow: ' + playerState['underflow']);
 }
+
+/*
+David's additions
+*/
+
+function overridePrepareLicenseRequest() {
+	setDebugMessage('overridePrepareLicenseRequest', '');
+	return true;
+}
+
+mediaHost.prepareLicenseRequest = overridePrepareLicenseRequest();
+
