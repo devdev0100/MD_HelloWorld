@@ -838,7 +838,7 @@ David's additions
 */
 
 function overridePrepareLicenseRequest() {
-	setDebugMessage('overridePrepareLicenseRequest', '');
+	setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
 	return true;
 }
 
