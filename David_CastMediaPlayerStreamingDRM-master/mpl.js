@@ -842,3 +842,9 @@ window.mediaHost.prepareLicenseRequest = function () {
 	return true;
 }
 
+var origUpdateLicenseRequestInfo = window.mediaHost.updateLicenseRequestInfo;
+window.mediaHost.updateLicenseRequestInfo = function (data) {
+	setDebugMessage('requestInfo', 'requestInfo...');
+	origUpdateLicenseRequestInfo(data);
+}
+
