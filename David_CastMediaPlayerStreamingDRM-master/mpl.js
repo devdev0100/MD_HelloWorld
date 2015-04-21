@@ -837,10 +837,8 @@ function getPlayerState() {
 David's additions
 */
 
-function overridePrepareLicenseRequest() {
+window.mediaHost.prepareLicenseRequest = function () {
 	setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
 	return true;
 }
-
-mediaHost.prepareLicenseRequest = overridePrepareLicenseRequest();
 
