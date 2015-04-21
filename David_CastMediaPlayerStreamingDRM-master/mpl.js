@@ -835,7 +835,7 @@ function getPlayerState() {
 
 /*
 David's additions
-*/
+
 
 function overridePrepareLicenseRequest() {
 	setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
@@ -844,3 +844,4 @@ function overridePrepareLicenseRequest() {
 
 mediaHost.prepareLicenseRequest = overridePrepareLicenseRequest();
 
+*/
