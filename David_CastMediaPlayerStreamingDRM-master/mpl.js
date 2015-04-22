@@ -35,6 +35,7 @@ var mediaHost = null;  // an instance of cast.player.api.Host
 var mediaProtocol = null;  // an instance of cast.player.api.Protocol
 var mediaPlayer = null;  // an instance of cast.player.api.Player
 
+var trackDrmSeq = 0;
 /*
  * onLoad method as entry point to initialize custom receiver
  */
@@ -673,7 +674,9 @@ onload = function() {
 	David's additions
 	*/
 	mediaHost.prepareLicenseRequest = function () {
-		setDebugMessage('overridePrepareLicenseRequest', 'PrepareLicenseRequest called!');
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] PrepareLicenseRequest called!"
+		setDebugMessage('overridePrepareLicenseRequest', msg);
 		return true;
 	}
 
@@ -690,13 +693,16 @@ onload = function() {
 		prot = data.protectionSystem
 		url = data.url
 		
-		msg = "content: " + content + "  ||  headers: " + headers + "  ||  prot: " + prot + "  ||  url: " + url 
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] Content: " + content + "  ||  headers: " + headers + "  ||  prot: " + prot + "  ||  url: " + url 
 		setDebugMessage('requestInfo', msg);
 		//origUpdateLicenseRequestInfo(data);
 	}
 	
 	mediaHost.processLicense = function(param) {
-		setDebugMessage('license', String.fromCharCode.apply(null, param));
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] " + String.fromCharCode.apply(null, param);
+		setDebugMessage('license', msg);
 		return param;
 	}
 
