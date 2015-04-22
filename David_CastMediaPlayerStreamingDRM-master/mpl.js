@@ -669,7 +669,27 @@ onload = function() {
         }
       };
 
-      var initialTimeIndexSeconds = event.data['media']['currentTime'] || 0;
+	/*
+	David's additions
+	*/
+	mediaHost.prepareLicenseRequest = function () {
+		setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
+		return true;
+	}
+
+	//var origUpdateLicenseRequestInfo = window.mediaHost.updateLicenseRequestInfo;
+	mediaHost.updateLicenseRequestInfo = function (data) {
+		setDebugMessage('requestInfo', 'requestInfo...');
+		//origUpdateLicenseRequestInfo(data);
+	}
+
+	/*var origTrackBandwidth = mediaHost.trackBandwidth;
+	mediaHost.trackBandwidth = function (streamIndex, time, size) {
+		setDebugMessage('TrackBandwidth', 'trackBandwidth...');
+		origTrackBandwidth(streamIndex, time, size);
+	}*/
+
+	var initialTimeIndexSeconds = event.data['media']['currentTime'] || 0;
       protocol = null;
       var ext = null;
       if (url.lastIndexOf('.m3u8') >= 0) {
@@ -833,23 +853,3 @@ function getPlayerState() {
   setDebugMessage('mediaPlayerState', 'underflow: ' + playerState['underflow']);
 }
 
-/*
-David's additions
-*/
-
-window.mediaHost.prepareLicenseRequest = function () {
-	setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
-	return true;
-}
-
-var origUpdateLicenseRequestInfo = window.mediaHost.updateLicenseRequestInfo;
-window.mediaHost.updateLicenseRequestInfo = function (data) {
-	setDebugMessage('requestInfo', 'requestInfo...');
-	origUpdateLicenseRequestInfo(data);
-}
-
-var origTrackBandwidth = window.mediaHost.trackBandwidth;
-window.mediaHost.trackBandwidth = function (streamIndex, time, size) {
-	setDebugMessage('TrackBandwidth', 'trackBandwidth...');
-	origTrackBandwidth(streamIndex, time, size);
-}
