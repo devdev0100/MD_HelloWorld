@@ -673,14 +673,31 @@ onload = function() {
 	David's additions
 	*/
 	mediaHost.prepareLicenseRequest = function () {
-		setDebugMessage('overridePrepareLicenseRequest', 'overridePrepareLicenseRequest');
+		setDebugMessage('overridePrepareLicenseRequest', 'PrepareLicenseRequest called!');
 		return true;
 	}
 
 	//var origUpdateLicenseRequestInfo = window.mediaHost.updateLicenseRequestInfo;
 	mediaHost.updateLicenseRequestInfo = function (data) {
-		setDebugMessage('requestInfo', 'requestInfo...');
+		content = ""
+		if (data.content)
+			content = String.fromCharCode.apply(null, data.content);
+		
+		headers = ""
+		if (data.headers)
+			headers = JSON.stringify(data.headers)	
+		
+		prot = data.protectionSystem
+		url = data.url
+		
+		msg = "content: " + content + "  ||  headers: " + headers + "  ||  prot: " + prot + "  ||  url: " + url 
+		setDebugMessage('requestInfo', msg);
 		//origUpdateLicenseRequestInfo(data);
+	}
+	
+	mediaHost.processLicense = function(param) {
+		setDebugMessage('license', String.fromCharCode.apply(null, param));
+		return param;
 	}
 
 	/*var origTrackBandwidth = mediaHost.trackBandwidth;
