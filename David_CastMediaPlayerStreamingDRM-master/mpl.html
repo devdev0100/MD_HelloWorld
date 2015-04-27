@@ -1,0 +1,116 @@
+<!--
+Copyright (C) 2013 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <title>Sample Receiver with Media Player Library for DASH/SS/HLS Streaming with DRMs</title>
+    <!--
+        Cast APIs
+    -->
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <!--
+        Cast Media Library
+    -->
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script>
+    <script type="text/javascript" src="mpl.js"></script>
+
+    <style>
+        body {
+            overflow:hidden;
+        }
+        video {
+            height:auto;
+            width:100%;
+            text-align: center;
+            border:0px solid silver;
+            display: block;
+            vertical-align: middle;
+            color: #FFFFFF;
+            background-color: #000000;
+            font-weight: bold;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size:40px;
+            float:left;
+            z-index: 1;
+            position:absolute;
+        }
+        #messages {
+            color: #FFFFFF;
+            float: left;
+            top:10px;
+            left:20px;
+            margin-left: 5px;
+            margin-top:  5px;
+            z-index:2;
+            position:absolute;
+            font-weight: bold;
+            font-size: 90%;
+            width:95%;
+            background-color: rgba(0,0,0,0.5);
+            opacity:0.6;
+        }
+
+        #messages span {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:800px;" id="messages">
+	  <div style="font-size:100%;"> License Info: <span id="overridePrepareLicenseRequest">-</span></div>
+	  <div style="font-size:100%;"> Request Info: <span id="requestInfo">-</span></div>
+	  <div style="font-size:100%;"> License: <span id="license">-</span></div>
+	  <div style="font-size:100%;color:#FF0000;">Media Host State: <span id="mediaHostState">-</span></div>
+      <div style="font-size:70%;"> App State: <span id="applicationState">-</span></div>
+      <div style="font-size:70%;">Sender Count: <span id="senderCount">0</span></div>
+      <div style="font-size:70%;">Media Element State: <span  id="mediaElementState">-</span></div>
+      <div style="font-size:70%;">Volume State: <span  id="volumeMessage">Starting volume, unchanged at 0.5</span></div>
+      <hr>
+      <div style="font-size:70%;">Cast Receiver Manager Message: <span  id="castReceiverManagerMessage">-</span></div>
+      <hr>
+      <div style="font-size:70%;">Media Manager Message: <span  id="mediaManagerMessage">-</span></div>
+      <hr>
+      <div style="font-size:70%;">Message Bus Message: <span  id="messageBusMessage">-</span></div>
+      <hr>
+      <div style="font-size:100%;font-weight:bold;">Media Player Library: Player - Host - Protocol</div>
+      <div style="font-size:70%;">Media Player State: <span id="mediaPlayerState">-</span></div>
+      <div style="font-size:100%;color:'red';">Media Host State: <span id="mediaHostState">-</span></div>
+      <div style="font-size:70%;">Media Protocol: <span id="mediaProtocol">-</span></div>
+      <div style="font-size:70%;">Stream Count: <span id="streamCount"></span></div>
+      <div style="font-size:70%;">Video Stream Index: <span id="videoStreamIndex"></span></div>
+      <div style="font-size:70%;">Video Codecs: <span id="streamVideoCodecs"></span></div>
+      <div style="font-size:70%;">Video Bitrates: <span id="streamVideoBitrates"></span></div>
+      <div style="font-size:70%;">Video Bitrates Index: <span id="videoQualityIndex"></span></div>
+      <div style="font-size:70%;">Video Quality Bandwidth: <span id="streamVideoQuality"></span></div>
+      <div style="font-size:70%;">Audio Stream Index: <span id="audioStreamIndex"></span></div>
+      <div style="font-size:70%;">Audio Codecs: <span id="streamAudioCodecs"></span></div>
+      <div style="font-size:70%;">Audio Bitrates: <span id="streamAudioBitrates"></span></div>
+      <div style="font-size:70%;">Audio Bitrates Index: <span id="audioQualityIndex"></span></div>
+      <div style="font-size:70%;">Audio Quality Bandwidth: <span id="streamAudioQuality"></span></div>
+      <div style="font-size:70%;">Captions: <span id="captions"></span></div>
+      <div style="font-size:70%;">License Server URL: <span id="licenseUrl"></span></div>
+      <div style="font-size:70%;">Custom Data: <span id="customData"></span></div>
+      <span>Manifest Credentials: <span id="manifestCredentials">false</span></span>
+      <span>Manifest Credentials: <span id="manifestCredentials">false</span></span>
+      <span>Segment Credentials: <span id="segmentCredentials">false</span></span>
+      <span>License Credentials: <span id="licenseCredentials">false</span></span>
+    </div>
+    <video id="receiverVideoElement" style="height:95%; width:100%;"></video>
+
+</body>
+</html>
