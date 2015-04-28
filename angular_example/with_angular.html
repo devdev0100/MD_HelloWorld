@@ -1,0 +1,49 @@
+<html ng-app="simApp">
+<head>
+    <title>Angular Coalition Simulator</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+    <div id="appWrapper" ng-controller="simulatorController">
+        <h1>Angular Coalition Simulator</h1>
+
+        <div id="dashboard">
+            <div id="newPartyDiv">
+                <div class="inputDiv">
+                    <label for="newPartyNameInput">New Party Name:</label>
+                    <input id="newPartyNameInput" type="text" ng-model="newPartyName"/>
+                </div>
+                <div class="inputDiv">
+                    <label for="newPartySeatsInput">Number of Seats:</label>
+                    <input id="newPartySeatsInput" type="text" ng-model="newPartySeats"/>
+                </div>
+                <div class="inputDiv">
+                    <button ng-click="addParty()">Add Party</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="coalitionDiv">
+            <div id="coalitionBar" ng-style="{'width': coalitionPercentage * 1000, 'background-color': barColor()}"></div>
+        </div>
+
+        <div id="tableDiv">
+            <table id="partyTable">
+                <tr>
+                    <th>Co.</th>
+                    <th>Party</th>
+                    <th>Seats</th>
+                </tr>
+                <tr ng-repeat="party in parliament">
+                    <td><input type="checkbox" ng-model="party.inCoalition"/></td>
+                    <td>{{party.name}}</td>
+                    <td>{{party.seats}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/with_angular.js"></script>
+</body>
+</html>
