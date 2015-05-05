@@ -35,6 +35,7 @@ var mediaHost = null;  // an instance of cast.player.api.Host
 var mediaProtocol = null;  // an instance of cast.player.api.Protocol
 var mediaPlayer = null;  // an instance of cast.player.api.Player
 
+var trackDrmSeq = 0;
 /*
  * onLoad method as entry point to initialize custom receiver
  */
@@ -668,6 +669,49 @@ onload = function() {
           mediaPlayer.unload();
         }
       };
+
+	/*
+	David's additions
+	*/
+	mediaHost.prepareLicenseRequest = function () {
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] PrepareLicenseRequest called!"
+		setDebugMessage('overridePrepareLicenseRequest', msg);
+		return true;
+	}
+
+	//var origUpdateLicenseRequestInfo = window.mediaHost.updateLicenseRequestInfo;
+	mediaHost.updateLicenseRequestInfo = function (data) {
+		content = ""
+		if (data.content)
+			content = JSON.stringify(data.content);
+			//content = String.fromCharCode.apply(null, data.content);
+		
+		headers = ""
+		if (data.headers)
+			headers = JSON.stringify(data.headers)	
+		
+		prot = data.protectionSystem
+		url = data.url
+		
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] Content: " + content + "  ||  headers: " + headers + "  ||  prot: " + prot + "  ||  url: " + url 
+		setDebugMessage('requestInfo', msg);
+		//origUpdateLicenseRequestInfo(data);
+	}
+	
+	mediaHost.processLicense = function(param) {
+		trackDrmSeq++;
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] " + String.fromCharCode.apply(null, param);
+		setDebugMessage('license', msg);
+		return param;
+	}
+
+	/*var origTrackBandwidth = mediaHost.trackBandwidth;
+	mediaHost.trackBandwidth = function (streamIndex, time, size) {
+		setDebugMessage('TrackBandwidth', 'trackBandwidth...');
+		origTrackBandwidth(streamIndex, time, size);
+	}*/
 
       var initialTimeIndexSeconds = event.data['media']['currentTime'] || 0;
       protocol = null;

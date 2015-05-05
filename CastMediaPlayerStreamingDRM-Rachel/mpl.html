@@ -71,7 +71,11 @@ limitations under the License.
     </style>
 </head>
 <body>
-    <div id="messages">
+    <div style="width:800px;" id="messages">
+	  <div style="font-size:100%;"> License Info: <span id="overridePrepareLicenseRequest">-</span></div>
+	  <div style="font-size:100%;"> Request Info: <span id="requestInfo">-</span></div>
+	  <div style="font-size:100%;"> License: <span id="license">-</span></div>
+	  <div style="font-size:100%;color:#FF0000;">Media Host State: <span id="mediaHostState">-</span></div>
       <div style="font-size:70%;"> App State: <span id="applicationState">-</span></div>
       <div style="font-size:70%;">Sender Count: <span id="senderCount">0</span></div>
       <div style="font-size:70%;">Media Element State: <span  id="mediaElementState">-</span></div>
@@ -85,7 +89,7 @@ limitations under the License.
       <hr>
       <div style="font-size:100%;font-weight:bold;">Media Player Library: Player - Host - Protocol</div>
       <div style="font-size:70%;">Media Player State: <span id="mediaPlayerState">-</span></div>
-      <div style="font-size:70%;">Media Host State: <span id="mediaHostState">-</span></div>
+      <div style="font-size:100%;color:'red';">Media Host State: <span id="mediaHostState">-</span></div>
       <div style="font-size:70%;">Media Protocol: <span id="mediaProtocol">-</span></div>
       <div style="font-size:70%;">Stream Count: <span id="streamCount"></span></div>
       <div style="font-size:70%;">Video Stream Index: <span id="videoStreamIndex"></span></div>
