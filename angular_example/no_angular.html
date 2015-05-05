@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Coalition Simulator</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Coalition Simulator</h1>
+
+    <div id="dashboard">
+        <div id="newPartyDiv">
+            <div class="inputDiv">
+                <label for="newPartyNameInput">New Party Name:</label>
+                <input id="newPartyNameInput" type="text"/>
+            </div>
+            <div class="inputDiv">
+                <label for="newPartySeatsInput">Number of Seats:</label>
+                <input id="newPartySeatsInput" type="text"/>
+            </div>
+            <div class="inputDiv">
+                <button onclick="addParty();">Add Party</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="coalitionDiv">
+        <div id="coalitionBar"></div>
+    </div>
+
+    <div id="tableDiv">
+        <table id="partyTable">
+            <tr>
+                <th>Co.</th>
+                <th>Party</th>
+                <th>Seats</th>
+            </tr>
+        </table>
+    </div>
+    <script src="js/no_angular.js"></script>
+</body>
+</html>

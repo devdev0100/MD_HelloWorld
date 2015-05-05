@@ -1,0 +1,62 @@
+body {
+    background-color: #30253a;
+}
+
+div {
+    font-family: "Trebuchet MS";
+}
+
+h1 {
+    color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+label {
+    color: white;
+    display: inline-block;
+    width: 150px;
+}
+
+input {
+    border: 0;
+    background-color: #60585f;
+}
+
+.inputDiv {
+    margin: 10px;
+}
+
+#newPartyDiv {
+    margin: 25px;
+    display: inline-block;
+    /*background-color: lightgoldenrodyellow;*/
+}
+
+#tableDiv {
+    margin: 25px;
+    display: inline-block;
+    background-color: thistle;
+}
+
+#coalitionDiv {
+    margin: 25px;
+    width: 1000px;
+    height: 20px;
+    background-color: #cdd6cc;
+}
+
+#coalitionBar {
+    height: 20px;
+    width: 0px;
+    background-color: darkred;
+    transition: width 1s, background-color 1s;
+}
+
+button {
+    border: 0;
+    padding: 8px;
+    background-color: #60585f;
+    color: white;
+    margin-left: 100px;
+    margin-top: 25px;
+}
