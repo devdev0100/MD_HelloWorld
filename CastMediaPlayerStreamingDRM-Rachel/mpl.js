@@ -684,7 +684,7 @@ onload = function() {
 	mediaHost.updateLicenseRequestInfo = function (data) {
 		content = ""
 		if (data.content)
-			content = JSON.stringify(data.content);
+			content = atob(data.content);
 			//content = String.fromCharCode.apply(null, data.content);
 		
 		headers = ""
