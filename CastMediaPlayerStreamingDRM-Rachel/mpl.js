@@ -693,6 +693,7 @@ onload = function() {
 			//content = atob(data.content);
 			//content = String.fromCharCode.apply(null, content);*/
 			content = String.fromCharCode.apply(null, data.content);
+			broadcast(content);
 		}
 		
 		headers = ""
