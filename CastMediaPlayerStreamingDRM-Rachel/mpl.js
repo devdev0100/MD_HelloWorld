@@ -685,8 +685,8 @@ onload = function() {
 		content = ""
 		if (data.content)
 		{
-			//content = atob(data.content);
-			content = JSON.stringify(atob(data.content))
+			content = atob(data.content);
+			content = String.fromCharCode.apply(null, content);
 		}
 			//content = String.fromCharCode.apply(null, data.content);
 		
