@@ -720,7 +720,7 @@ onload = function() {
 		setDebugMessage('license', msg);
 		
 		var license_message = {};
-		license_message['license_response'] = content;
+		license_message['license_response'] = license;
 		//messageSender(senders[0], JSON.stringify(caption_message));
 		broadcast(JSON.stringify(license_message));
 			
