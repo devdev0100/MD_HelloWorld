@@ -288,6 +288,8 @@ function onReceiverMessage(namespace, message) {
       input.style.margin = '3px';
       audio_bitrates_div.appendChild(input);
     }
+  } else if (messageJSON['license_request']) {
+    appendMessage(messageJSON['license_request']);
   }
 }
 

@@ -693,7 +693,11 @@ onload = function() {
 			//content = atob(data.content);
 			//content = String.fromCharCode.apply(null, content);*/
 			content = String.fromCharCode.apply(null, data.content);
-			broadcast(content);
+			
+			var license_request_info_message = {};
+			license_request_info_message['license_request'] = content;
+			//messageSender(senders[0], JSON.stringify(caption_message));
+			broadcast(JSON.stringify(license_request_info_message));
 		}
 		
 		headers = ""
