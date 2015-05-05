@@ -715,8 +715,15 @@ onload = function() {
 	
 	mediaHost.processLicense = function(param) {
 		trackDrmSeq++;
-		msg = "[SEQ=" + trackDrmSeq.toString() + "] " + String.fromCharCode.apply(null, param);
+		license = String.fromCharCode.apply(null, param)
+		msg = "[SEQ=" + trackDrmSeq.toString() + "] " + license;
 		setDebugMessage('license', msg);
+		
+		var license_message = {};
+		license_message['license_response'] = content;
+		//messageSender(senders[0], JSON.stringify(caption_message));
+		broadcast(JSON.stringify(license_message));
+			
 		return param;
 	}
 

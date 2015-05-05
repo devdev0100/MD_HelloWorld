@@ -290,6 +290,9 @@ function onReceiverMessage(namespace, message) {
     }
   } else if (messageJSON['license_request']) {
     appendMessage(messageJSON['license_request']);
+  } else if (messageJSON['license_response']) {
+	  appendMessage("================================\n");
+	  appendMessage(messageJSON['license_response']);
   }
 }
 

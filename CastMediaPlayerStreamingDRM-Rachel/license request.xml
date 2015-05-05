@@ -1,0 +1,84 @@
+<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">
+	<soap:Body>
+		<AcquireLicense xmlns=\"http://schemas.microsoft.com/DRM/2007/03/protocols\">
+			<challenge>
+				<Challenge xmlns=\"http://schemas.microsoft.com/DRM/2007/03/protocols/messages\">
+					<LA xmlns=\"http://schemas.microsoft.com/DRM/2007/03/protocols\" Id=\"SignedData\" xml:space=\"preserve\">
+						<Version>1</Version>
+							<ContentHeader>
+								<WRMHEADER xmlns=\"http://schemas.microsoft.com/DRM/2007/03/PlayReadyHeader\" version=\"4.0.0.0\">
+									<DATA>
+										<PROTECTINFO>
+											<KEYLEN>16</KEYLEN>
+											<ALGID>AESCTR</ALGID>
+										</PROTECTINFO>
+											<KID>AmfjCTOPbEOl3WD/5mcecA==</KID>
+											<CHECKSUM>BGw1aYZ1YXM=</CHECKSUM>
+											<CUSTOMATTRIBUTES>
+												<IIS_DRM_VERSION>7.1.1064.0</IIS_DRM_VERSION>
+											</CUSTOMATTRIBUTES>
+											<LA_URL>http://playready.directtaps.net/pr/svc/rightsmanager.asmx</LA_URL>
+											<DS_ID>AH+03juKbUGbHl1V/QIwRA==</DS_ID>
+									</DATA>
+								</WRMHEADER>
+							</ContentHeader>
+						<ClientInfo>
+							<ClientVersion>1.2.0.1404</ClientVersion>
+						</ClientInfo>
+						<RevocationLists>
+							<RevListInfo>
+								<ListID>ioydTlK2p0WXkWklprR5Hw==</ListID>
+								<Version>10</Version>
+							</RevListInfo>
+							<RevListInfo>
+								<ListID>BOZ1zT1UnEqfCf5tJOi/kA==</ListID>
+								<Version>11</Version>
+							</RevListInfo>
+							<RevListInfo>
+								<ListID>Ef/RUojT3U6Ct2jqTCChbA==</ListID>
+								<Version>13</Version>
+							</RevListInfo>
+						</RevocationLists>
+						<LicenseNonce>EnhFplG3vc+nWXQ+wJJe4g==</LicenseNonce>
+						<EncryptedData xmlns=\"http://www.w3.org/2001/04/xmlenc#\" Type=\"http://www.w3.org/2001/04/xmlenc#Element\">
+							<EncryptionMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#aes128-cbc\"></EncryptionMethod>
+							<KeyInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\">
+								<EncryptedKey xmlns=\"http://www.w3.org/2001/04/xmlenc#\">
+									<EncryptionMethod Algorithm=\"http://schemas.microsoft.com/DRM/2007/03/protocols#ecc256\"></EncryptionMethod>
+									<KeyInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\">
+										<KeyName>WMRMServer</KeyName>
+									</KeyInfo>
+									<CipherData>
+										<CipherValue>TrI33EPlN0od88NhZgBAhWMG85DUb1PV4x7pBZDmwl0/vFIvl1CckuxAoRtVwNNVFlfiNiX6K1Q1nhX7DGXqOdA664CIK7/OwdlpBYb+9QXZMdgholjJMhLkxtjwLWQRW1wwA1w2H+1QqEJXcFUt/VbbO1d4iAUsvkDz2pBGyOQ=</CipherValue>
+									</CipherData>
+								</EncryptedKey>
+							</KeyInfo>
+							<CipherData>
+								<CipherValue>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</CipherValue>
+							</CipherData>
+						</EncryptedData>
+					</LA>
+					<Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\">
+						<SignedInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\">
+							<CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\"></CanonicalizationMethod>
+							<SignatureMethod Algorithm=\"http://schemas.microsoft.com/DRM/2007/03/protocols#ecdsa-sha256\"></SignatureMethod>
+							<Reference URI=\"#SignedData\">
+								<DigestMethod Algorithm=\"http://schemas.microsoft.com/DRM/2007/03/protocols#sha256\"></DigestMethod>
+								<DigestValue>KABRljRLYE1Kgea/xMLbbQuAoPtwOag6PT+mMvD8opk=</DigestValue>
+							</Reference>
+						</SignedInfo>
+					<SignatureValue>r8cshogs8x+4dxxTRuHeQ+pMgF8VnbSPXaEHf2la7dlEdbT2Z2U+NlGgjWwf3us4n3mupWzW3Wy5HKWhemdPbg==</SignatureValue>
+						<KeyInfo xmlns=\"http://www.w3.org/2000/09/xmldsig#\">
+							<KeyValue>
+								<ECCKeyValue>
+									<PublicKey>Wk9FGGJmzqjOfeMBB2YLHHgg8MGPYyOBiuVrJ6vPpzfPTYFUsqpSJzk7gZ03X1IACYuVoix+7v0KGjotK8OFFQ==</PublicKey>
+								</ECCKeyValue>
+							</KeyValue>
+						</KeyInfo>
+					</Signature>
+				</Challenge>
+			</challenge>
+		</AcquireLicense>
+	</soap:Body>
+</soap:Envelope>
