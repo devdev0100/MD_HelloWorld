@@ -638,10 +638,8 @@ onload = function() {
 
       if (licenseUrl) {
         mediaHost.licenseUrl = licenseUrl;
-		if ( isValidURL(licenseUrl) )
-			setDebugMessage('mediaElementState', 'VALID license URL');
-		else
-			setDebugMessage('mediaElementState', 'NOT VALID license URL');
+		setDebugMessage('mediaElementState', 'VALID license URL');
+		ping(licenseUrl, function(ms) {setDebugMessage('mediaElementState', 'NOT VALID license URL');});
       }
 
       if (customData) {
@@ -905,22 +903,27 @@ function getPlayerState() {
   setDebugMessage('mediaPlayerState', 'underflow: ' + playerState['underflow']);
 }
 
-function isValidURL(url) {
-    var encodedURL = encodeURIComponent(url);
-    var isValid = false;
+function ping(url, pong) {
 
-    $.ajax({
-      url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22&format=json",
-      type: "get",
-      async: false,
-      dataType: "json",
-      success: function(data) {
-        isValid = data.query.results != null;
-      },
-      error: function(){
-        isValid = false;
+  var started = new Date().getTime();
+
+  var http = new XMLHttpRequest();
+
+  http.open("GET", url, /*async*/true);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4) {
+      var ended = new Date().getTime();
+
+      var milliseconds = ended - started;
+
+      if (pong != null) {
+        pong(milliseconds);
       }
-    });
-
-    return isValid;
+    }
+  };
+  try {
+    http.send(null);
+  } catch(exception) {
+    // this is expected
+  }
 }
