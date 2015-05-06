@@ -664,7 +664,7 @@ onload = function() {
 
       mediaHost.onError = function(errorCode, requestStatus) {
         console.error('### HOST ERROR - Fatal Error: code = ' + errorCode);
-        setDebugMessage('mediaHostState', 'Fatal Error: code = ' + JSON.stringify(errorCode));
+        setDebugMessage('mediaHostState', 'Fatal Error: code = ' + errorCode);
         if (mediaPlayer !== null) {
           mediaPlayer.unload();
         }
@@ -703,6 +703,7 @@ onload = function() {
 				requestInfo.headers['msprdrm_server_exception_compat'] = 'false';
 				requestInfo.headers['Accept'] = 'application/xml, text/xml, */*';
 				requestInfo.headers['Nds-Access-Criteria'] = '1430116314000,1430116315000';
+				requestInfo.withCredentials = true;
 			}
 			headers = JSON.stringify(requestInfo.headers)
 		}
