@@ -638,6 +638,10 @@ onload = function() {
 
       if (licenseUrl) {
         mediaHost.licenseUrl = licenseUrl;
+		if ( isValidURL(licenseUrl) )
+			setDebugMessage('mediaElementState', 'VALID license URL');
+		else
+			setDebugMessage('mediaElementState', 'NOT VALID license URL');
       }
 
       if (customData) {
@@ -899,4 +903,24 @@ function setDebugMessage(elementId, message) {
 function getPlayerState() {
   var playerState = mediaPlayer.getState();
   setDebugMessage('mediaPlayerState', 'underflow: ' + playerState['underflow']);
+}
+
+function isValidURL(url) {
+    var encodedURL = encodeURIComponent(url);
+    var isValid = false;
+
+    $.ajax({
+      url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22" + encodedURL + "%22&format=json",
+      type: "get",
+      async: false,
+      dataType: "json",
+      success: function(data) {
+        isValid = data.query.results != null;
+      },
+      error: function(){
+        isValid = false;
+      }
+    });
+
+    return isValid;
 }
