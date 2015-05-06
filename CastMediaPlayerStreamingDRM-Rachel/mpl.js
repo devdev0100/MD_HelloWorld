@@ -664,7 +664,7 @@ onload = function() {
 
       mediaHost.onError = function(errorCode, requestStatus) {
         console.error('### HOST ERROR - Fatal Error: code = ' + errorCode);
-        setDebugMessage('mediaHostState', 'Fatal Error: code = ' + errorCode);
+        setDebugMessage('mediaHostState', 'Fatal Error: code = ' + JSON.stringify(errorCode));
         if (mediaPlayer !== null) {
           mediaPlayer.unload();
         }
@@ -696,10 +696,14 @@ onload = function() {
 		headers = ""
 		if (requestInfo.headers)
 		{
-			requestInfo.headers['msprdrm_server_redirect_compat'] = 'false';
-			requestInfo.headers['msprdrm_server_exception_compat'] = 'false';
-			requestInfo.headers['Accept'] = 'application/xml, text/xml, */*';
-			requestInfo.headers['Nds-Access-Criteria'] = '1430116314000,1430116315000';
+			// for now, update the headers only if we sent custom data from the sender
+			if (customData)
+			{
+				requestInfo.headers['msprdrm_server_redirect_compat'] = 'false';
+				requestInfo.headers['msprdrm_server_exception_compat'] = 'false';
+				requestInfo.headers['Accept'] = 'application/xml, text/xml, */*';
+				requestInfo.headers['Nds-Access-Criteria'] = '1430116314000,1430116315000';
+			}
 			headers = JSON.stringify(requestInfo.headers)
 		}
 		
