@@ -638,8 +638,6 @@ onload = function() {
 
       if (licenseUrl) {
         mediaHost.licenseUrl = licenseUrl;
-		setDebugMessage('mediaElementState', 'VALID license URL');
-		ping(licenseUrl, function(ms) {setDebugMessage('mediaElementState', 'NOT VALID license URL');});
       }
 
       if (customData) {
@@ -901,29 +899,4 @@ function setDebugMessage(elementId, message) {
 function getPlayerState() {
   var playerState = mediaPlayer.getState();
   setDebugMessage('mediaPlayerState', 'underflow: ' + playerState['underflow']);
-}
-
-function ping(url, pong) {
-
-  var started = new Date().getTime();
-
-  var http = new XMLHttpRequest();
-
-  http.open("GET", url, /*async*/true);
-  http.onreadystatechange = function() {
-    if (http.readyState == 4) {
-      var ended = new Date().getTime();
-
-      var milliseconds = ended - started;
-
-      if (pong != null) {
-        pong(milliseconds);
-      }
-    }
-  };
-  try {
-    http.send(null);
-  } catch(exception) {
-    // this is expected
-  }
 }
