@@ -699,11 +699,11 @@ onload = function() {
 			// for now, update the headers only if we sent custom data from the sender
 			if (customData)
 			{
-				requestInfo.headers['msprdrm_server_redirect_compat'] = 'false';
-				requestInfo.headers['msprdrm_server_exception_compat'] = 'false';
-				requestInfo.headers['Accept'] = 'application/xml, text/xml, */*';
-				requestInfo.headers['Nds-Access-Criteria'] = '1430116314000,1430116315000';
-				requestInfo.withCredentials = true;
+				//requestInfo.headers['msprdrm_server_redirect_compat'] = 'false';
+				//requestInfo.headers['msprdrm_server_exception_compat'] = 'false';
+				//requestInfo.headers['Accept'] = 'application/xml, text/xml, */*';
+				//requestInfo.headers['Nds-Access-Criteria'] = '1430116314000,1430116315000';
+				//requestInfo.withCredentials = true;
 			}
 			headers = JSON.stringify(requestInfo.headers)
 		}
