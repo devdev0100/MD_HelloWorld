@@ -610,7 +610,7 @@ onload = function() {
         'url': url
       });
 
-      /*if (manifestCredentials) {
+      if (manifestCredentials) {
         mediaHost.updateManifestRequestInfo = function(requestInfo) {
           // example of setting CORS withCredentials
           if (!requestInfo.url) {
@@ -634,7 +634,7 @@ onload = function() {
           requestInfo.withCredentials = true;
         };
       }
-
+/*
       if (licenseUrl) {
         //mediaHost.licenseUrl = licenseUrl;
       }
