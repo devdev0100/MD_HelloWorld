@@ -610,7 +610,7 @@ onload = function() {
         'url': url
       });
 
-      if (manifestCredentials) {
+      /*if (manifestCredentials) {
         mediaHost.updateManifestRequestInfo = function(requestInfo) {
           // example of setting CORS withCredentials
           if (!requestInfo.url) {
@@ -659,7 +659,7 @@ onload = function() {
             return qualityLevel;
           }
         };
-      }
+      }*/
 
       mediaHost.onError = function(errorCode, requestStatus) {
         console.error('### HOST ERROR - Fatal Error: code = ' + errorCode);
