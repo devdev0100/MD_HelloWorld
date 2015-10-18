@@ -690,12 +690,12 @@ onload = function() {
       // Player registers to listen to the media element events through the
       // mediaHost property of the  mediaElement
       mediaPlayer = new cast.player.api.Player(mediaHost);
-      if (liveStreaming) {
+      /*if (liveStreaming) {
         mediaPlayer.load(protocol, Infinity);
       }
-      else {
+      else {*/
         mediaPlayer.load(protocol, initialTimeIndexSeconds);
-      }
+      //}
       setDebugMessage('mediaHostState', 'success');
     }
   };
