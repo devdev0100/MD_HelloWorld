@@ -263,7 +263,7 @@ onload = function() {
   *
   * There is no default handler
   */
-  castReceiverManager.onSystemVolumeChanged = function(event) {
+  /*castReceiverManager.onSystemVolumeChanged = function(event) {
     console.log('### Cast Receiver Manager - System Volume Changed : ' +
         JSON.stringify(event));
     setDebugMessage('castReceiverManagerMessage', 'System Volume Changed: ' +
@@ -274,7 +274,7 @@ onload = function() {
         event.data['muted']);
     setDebugMessage('volumeMessage', 'Level: ' + event.data['level'] +
         ' -- muted? ' + event.data['muted']);
-  };
+  };*/
 
   /**
   * Use the messageBus to listen for incoming messages on a virtual channel
