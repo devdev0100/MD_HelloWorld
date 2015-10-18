@@ -639,7 +639,7 @@ onload = function() {
       }
 
       if (customData) {
-        mediaHost.licenseCustomData = customData;
+       // mediaHost.licenseCustomData = customData;
         console.log('### customData: ' + customData);
       }
 /*
