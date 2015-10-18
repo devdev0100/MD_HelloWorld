@@ -96,7 +96,7 @@ onload = function() {
       }
       else {
       }
-    }
+    }/*
     setDebugMessage('streamCount', streamCount);
     setDebugMessage('streamVideoCodecs', streamVideoCodecs);
     setDebugMessage('streamVideoBitrates', JSON.stringify(streamVideoBitrates));
@@ -126,7 +126,7 @@ onload = function() {
       audio_bitrates_message['audio_bitrates'] = streamAudioBitrates;
       broadcast(JSON.stringify(audio_bitrates_message));
     }
-
+*/
     getPlayerState();
 
   });
