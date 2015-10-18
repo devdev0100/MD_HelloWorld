@@ -634,7 +634,6 @@ onload = function() {
           requestInfo.withCredentials = true;
         };
       }
-/*
       if (licenseUrl) {
         //mediaHost.licenseUrl = licenseUrl;
       }
@@ -643,7 +642,7 @@ onload = function() {
         mediaHost.licenseCustomData = customData;
         console.log('### customData: ' + customData);
       }
-
+/*
       if ((videoQualityIndex != -1 && streamVideoBitrates &&
           videoQualityIndex < streamVideoBitrates.length) ||
           (audioQualityIndex != -1 && streamAudioBitrates &&
