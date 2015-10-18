@@ -304,7 +304,7 @@ onload = function() {
     // show/hide messages
     console.log(event['data']);
     var payload = JSON.parse(event['data']);
-    if (payload['type'] === 'show') {
+    /*if (payload['type'] === 'show') {
       if (payload['target'] === 'debug') {
         document.getElementById('messages').style.display = 'block';
       } else {
@@ -354,12 +354,12 @@ onload = function() {
     } else if (payload['type'] === 'licenseCredentials') {
         licenseCredentials = payload['value'];
         setDebugMessage('licenseCredentials', licenseCredentials);
-    } else if (payload['type'] === 'customData') {
+    } else*/ if (payload['type'] === 'customData') {
         customData = payload['value'];
         setDebugMessage('customData', customData);
-    } else {
+    } /*else {
         licenseUrl = null;
-    }
+    }*/
     broadcast(event['data']);
   };
 
