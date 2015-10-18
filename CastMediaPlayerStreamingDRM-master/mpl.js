@@ -636,7 +636,7 @@ onload = function() {
       }
 
       if (licenseUrl) {
-        mediaHost.licenseUrl = licenseUrl;
+        //mediaHost.licenseUrl = licenseUrl;
       }
 
       if (customData) {
