@@ -96,7 +96,7 @@ onload = function() {
       }
       else {
       }
-    }/*
+    }
     setDebugMessage('streamCount', streamCount);
     setDebugMessage('streamVideoCodecs', streamVideoCodecs);
     setDebugMessage('streamVideoBitrates', JSON.stringify(streamVideoBitrates));
@@ -126,7 +126,7 @@ onload = function() {
       audio_bitrates_message['audio_bitrates'] = streamAudioBitrates;
       broadcast(JSON.stringify(audio_bitrates_message));
     }
-*/
+
     getPlayerState();
 
   });
@@ -263,7 +263,7 @@ onload = function() {
   *
   * There is no default handler
   */
-  /*castReceiverManager.onSystemVolumeChanged = function(event) {
+  castReceiverManager.onSystemVolumeChanged = function(event) {
     console.log('### Cast Receiver Manager - System Volume Changed : ' +
         JSON.stringify(event));
     setDebugMessage('castReceiverManagerMessage', 'System Volume Changed: ' +
@@ -274,7 +274,7 @@ onload = function() {
         event.data['muted']);
     setDebugMessage('volumeMessage', 'Level: ' + event.data['level'] +
         ' -- muted? ' + event.data['muted']);
-  };*/
+  };
 
   /**
   * Use the messageBus to listen for incoming messages on a virtual channel
@@ -304,7 +304,7 @@ onload = function() {
     // show/hide messages
     console.log(event['data']);
     var payload = JSON.parse(event['data']);
-    /*if (payload['type'] === 'show') {
+    if (payload['type'] === 'show') {
       if (payload['target'] === 'debug') {
         document.getElementById('messages').style.display = 'block';
       } else {
@@ -354,12 +354,12 @@ onload = function() {
     } else if (payload['type'] === 'licenseCredentials') {
         licenseCredentials = payload['value'];
         setDebugMessage('licenseCredentials', licenseCredentials);
-    } else*/ if (payload['type'] === 'customData') {
+    } else if (payload['type'] === 'customData') {
         customData = payload['value'];
         setDebugMessage('customData', customData);
-    } /*else {
+    } else {
         licenseUrl = null;
-    }*/
+    }
     broadcast(event['data']);
   };
 
@@ -635,14 +635,14 @@ onload = function() {
         };
       }
       if (licenseUrl) {
-        //mediaHost.licenseUrl = licenseUrl;
+        mediaHost.licenseUrl = licenseUrl;
       }
 
       if (customData) {
-       // mediaHost.licenseCustomData = customData;
+        mediaHost.licenseCustomData = customData;
         console.log('### customData: ' + customData);
       }
-/*
+
       if ((videoQualityIndex != -1 && streamVideoBitrates &&
           videoQualityIndex < streamVideoBitrates.length) ||
           (audioQualityIndex != -1 && streamAudioBitrates &&
@@ -658,7 +658,7 @@ onload = function() {
             return qualityLevel;
           }
         };
-      }*/
+      }
 
       mediaHost.onError = function(errorCode, requestStatus) {
         console.error('### HOST ERROR - Fatal Error: code = ' + errorCode);
@@ -689,12 +689,12 @@ onload = function() {
       // Player registers to listen to the media element events through the
       // mediaHost property of the  mediaElement
       mediaPlayer = new cast.player.api.Player(mediaHost);
-      /*if (liveStreaming) {
+      if (liveStreaming) {
         mediaPlayer.load(protocol, Infinity);
       }
-      else {*/
+      else {
         mediaPlayer.load(protocol, initialTimeIndexSeconds);
-      //}
+      }
       setDebugMessage('mediaHostState', 'success');
     }
   };
