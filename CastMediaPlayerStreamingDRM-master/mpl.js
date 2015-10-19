@@ -628,12 +628,12 @@ onload = function() {
           //requestInfo.headers['content-type'] = 'text/xml;charset=utf-8';
         };
       }
-      if (licenseCredentials) {
+      //if (licenseCredentials) {
         mediaHost.updateLicenseRequestInfo = function(requestInfo) {
           // example of setting CORS withCredentials
-          requestInfo.withCredentials = true;
+          //requestInfo.withCredentials = true;
         };
-      }
+      //}
       if (licenseUrl) {
         mediaHost.licenseUrl = licenseUrl;
       }
